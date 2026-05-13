@@ -10,8 +10,8 @@
 
 ## 1. Outil utilisé
 
-Outil : __
-Version / date d'accès : __
+Outil : LLM
+Version / date d'accès : 13 Mai, 2026
 
 *(Si plusieurs outils, dupliquez cette section.)*
 
@@ -20,7 +20,7 @@ Version / date d'accès : __
 ## 2. Ce qu'il m'a aidé à faire
 
 *(Tâche précise — ex. : « structurer la section ROI », pas : « écrire le travail ».)*
-
+Réviser le travail
 __
 
 ---
@@ -28,7 +28,7 @@ __
 ## 3. Sources et chiffres que j'ai vérifiés moi-même
 
 *(Pour chaque affirmation ou chiffre fourni par l'IA → source primaire consultée.)*
-
+Les slides sont ma source pour le premier exercise
 - __
 - __
 
@@ -37,7 +37,7 @@ __
 ## 4. Ce que j'ai modifié ou rejeté
 
 *(Ce que l'IA a proposé mais que vous avez changé, corrigé ou écarté — et pourquoi.)*
-
+Chaque section a été révisé
 - __
 - __
 
@@ -48,5 +48,5 @@ __
 Je déclare que le contenu final reflète mon jugement personnel. Je suis responsable
 de l'exactitude, de la pertinence et du raisonnement — outil IA utilisé ou non.
 
-Nom : __
-Date : __
+Nom : Andrés Duarte
+Date : 13 Mai, 2026
