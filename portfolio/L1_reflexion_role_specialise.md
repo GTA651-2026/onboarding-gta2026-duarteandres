@@ -8,32 +8,39 @@
 
 ## Cas choisi
 
-_(Klarna / GitHub Copilot Enterprise / Morgan Stanley)_
+GitHub Copilot Enterprise
 
 ## 1. Probleme d'affaires resolu
+Le principal probleme resolu est la lenteur du developpement logiciel et la dependance complete envers la disponibilite des developpeurs seniors pour produire rapidement des prototypes, des correctifs ou de nouvelles fonctionnalites.
 
-_(En 2-3 phrases : quel probleme concret l'organisation cherchait-elle a resoudre ?)_
+Avec des agents de generation de code en langage naturel, les equipes peuvent accelerer la creation de preuves de concept, automatiser des taches repetitives et reduire le temps necessaire pour comprendre une base de code complexe. Cela augmente considerablement la vitesse d'execution des projets logiciels.
+
 
 ## 2. Fonction d'affaires ciblee
 
-_(Service client, developpement logiciel, analyse financiere, etc.)_
+Developpement logiciel et productivite des equipes TI.
 
 ## 3. Role specialise que l'agent orchestre
 
-_(Nommez-le precisement : agent de service client, agent developpeur, agent analyste, etc.)_
+Agent developpeur logiciel assiste par IA.
 
 ## 4. Valeur creee — quantifiee avec donnees publiques
 
-_(Chiffres concrets issus des sources du cours. Ex. : 700 agents equivalents, 55 % plus rapide, etc.)_
+Selon des donnees publiees par GitHub, les developpeurs utilisant Copilot accomplissent certaines taches de programmation jusqu'a 55 % plus rapidement.
+
+L'outil permet aussi de reduire le temps passe sur la documentation, la recherche de code et les taches repetitives, ce qui augmente la productivite globale des equipes de developpement et accelere la livraison des projets.
 
 ## 5. Risque principal et mitigation concrete
 
-_(Quel est le risque le plus important ? Quelle mesure concrete le reduit ?)_
+Le principal risque est la generation de code incorrect, vulnerable ou qui ne respecte pas les standards de securite de l'entreprise.
+
+La mitigation concrete consiste a imposer des revisions humaines obligatoires, des tests automatises et des controles de securite integres dans le pipeline CI/CD avant tout deploiement en production.
 
 ## 6. Condition de succes pour votre organisation
 
-_(Qu'est-ce qui doit etre en place pour que ce deploiement agentique fonctionne ?)_
+Le succes du deploiement depend de la presence d'une culture de collaboration entre les developpeurs et les outils IA, ainsi que de standards clairs de gouvernance du code.
 
----
+L'organisation doit aussi former les employes a bien utiliser les agents IA et maintenir des processus solides de validation, de securite et de revision du code genere.
+
 
 > **Rappel :** mettez a jour `ai-usage.md` a la racine du depot, meme si vous n'avez utilise aucun outil IA.
