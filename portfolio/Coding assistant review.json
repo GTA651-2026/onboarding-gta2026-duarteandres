@@ -1,0 +1,200 @@
+{
+  "name": "Coding assistant review",
+  "nodes": [
+    {
+      "parameters": {
+        "public": true,
+        "availableInChat": true,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        0,
+        0
+      ],
+      "id": "d0c9b9f8-5215-4b8f-a8f4-cd5a6a7b939f",
+      "name": "When chat message received",
+      "webhookId": "06c0dd81-dbfe-40b5-97fc-5e41e77324af"
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "You are a code generation assistant. Generate code from the user's request. After generating the code, call the available tool named 'Code Review Tool' with the generated code so it can review the code and return improvement suggestions. Do not provide the final answer until after the tool review completes."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        192,
+        0
+      ],
+      "id": "7e7039cb-ac58-4c96-b1d8-7f7c68b2f33b",
+      "name": "Code Generator Agent"
+    },
+    {
+      "parameters": {
+        "options": {
+          "temperature": 0.7
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1.1,
+      "position": [
+        80,
+        208
+      ],
+      "id": "eaa173ea-0a01-4a04-ba55-0f2b1c48e9a6",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": null,
+          "name": "",
+          "__aiGatewayManaged": true
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.4,
+      "position": [
+        224,
+        208
+      ],
+      "id": "8031b207-7ba0-4892-a677-357a77dd44bf",
+      "name": "Simple Memory"
+    },
+    {
+      "parameters": {
+        "text": "Review generated code and return improvements with specific recommendations. Expect to receive the code payload from the main agent and provide a clean review response.",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agentTool",
+      "typeVersion": 3,
+      "position": [
+        368,
+        208
+      ],
+      "id": "9300bc3f-8be7-44d2-8fa5-fc5725d85880",
+      "name": "Code Review Tool"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "claude-haiku-4-5-20251001",
+          "mode": "list",
+          "cachedResultName": "Claude Haiku 4.5"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatAnthropic",
+      "typeVersion": 1.5,
+      "position": [
+        240,
+        416
+      ],
+      "id": "8fe71305-4f79-44ee-8beb-aa6de0f657d6",
+      "name": "Review LLM",
+      "credentials": {
+        "anthropicApi": {
+          "id": null,
+          "name": "",
+          "__aiGatewayManaged": true
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.4,
+      "position": [
+        416,
+        416
+      ],
+      "id": "e1709192-7ba9-478a-bfe5-8c7364589a02",
+      "name": "Simple Memory1"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "Code Generator Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Code Generator Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "Code Generator Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code Review Tool": {
+      "ai_tool": [
+        [
+          {
+            "node": "Code Generator Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Review LLM": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Code Review Tool",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory1": {
+      "ai_memory": [
+        [
+          {
+            "node": "Code Review Tool",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "c65204b1-f020-4a28-a3c8-6a2b0fc3b8c2",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "4d8b3a4d93a7a93c9bfa8e672f8974c7d0cb0aef9c2ed1a6e23a1f7b0c8d5e9f"
+  },
+  "id": "L5HbQzpfY1ga1b2c"
+}
